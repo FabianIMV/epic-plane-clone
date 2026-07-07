@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Epic Plane Evolution — Clon</title>
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✈️</text></svg>">
+</head>
+<body>
+<div id="game-container">
+  <canvas id="game"></canvas>
+
+  <!-- HUD durante el vuelo -->
+  <div id="hud" class="hidden">
+    <div class="hud-row">
+      <div class="hud-item">📏 <span id="hud-dist">0</span> m</div>
+      <div class="hud-item">🚀 <span id="hud-speed">0</span> km/h</div>
+      <div class="hud-item">⛰️ <span id="hud-alt">0</span> m</div>
+      <div class="hud-item">🪙 <span id="hud-coins">0</span></div>
+    </div>
+    <div id="fuel-bar-wrap"><div id="fuel-bar"></div><span id="fuel-label">COMBUSTIBLE</span></div>
+  </div>
+
+  <!-- Menú principal / hangar -->
+  <div id="hangar" class="panel">
+    <h1>✈️ Epic Plane Evolution</h1>
+    <p class="subtitle">Clon libre — lanza, planea, mejora y evoluciona</p>
+    <div class="bank">🪙 <span id="bank-coins">0</span></div>
+    <div id="plane-name" class="plane-name"></div>
+    <div id="upgrades"></div>
+    <button id="btn-launch" class="big-btn">🛫 ¡DESPEGAR!</button>
+    <p class="hint">Arrastra hacia atrás para cargar la catapulta y suelta.<br>
+    En el aire: mantén presionado (o ESPACIO) para usar el motor y subir.</p>
+  </div>
+
+  <!-- Resultados -->
+  <div id="results" class="panel hidden">
+    <h2>🏁 ¡Aterrizaste!</h2>
+    <div class="stat">Distancia: <b><span id="res-dist">0</span> m</b></div>
+    <div class="stat">Altura máx.: <b><span id="res-alt">0</span> m</b></div>
+    <div class="stat">Monedas recogidas: <b>🪙 <span id="res-coins">0</span></b></div>
+    <div class="stat">Bono por distancia: <b>🪙 <span id="res-bonus">0</span></b></div>
+    <div class="stat total">Total: <b>🪙 <span id="res-total">0</span></b></div>
+    <div class="stat record hidden" id="res-record">🏆 ¡NUEVO RÉCORD!</div>
+    <button id="btn-again" class="big-btn">🔁 Volar de nuevo</button>
+    <button id="btn-hangar" class="big-btn secondary">🛠️ Hangar / Mejoras</button>
+  </div>
+
+  <!-- Botón y panel de ajustes (tuning en vivo) -->
+  <button id="btn-tuning" title="Ajustes del juego">⚙️</button>
+  <div id="tuning" class="hidden">
+    <h3>⚙️ Ajustes en vivo</h3>
+    <div id="tuning-sliders"></div>
+    <label class="check"><input type="checkbox" id="cheat-fuel"> Combustible infinito</label>
+    <div class="tuning-btns">
+      <button id="cheat-coins">+1000 🪙</button>
+      <button id="tuning-reset">Restablecer ajustes</button>
+      <button id="save-reset" class="danger">Borrar partida</button>
+    </div>
+  </div>
+</div>
+<script src="game.js"></script>
+</body>
+</html>
